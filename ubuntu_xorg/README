@@ -1,1 +1,20 @@
 Prepare a ubuntu xorg env
+
+Steps on Windows:
+1. exec 01_build_uxorg.bat
+2. exec 02_start_uxorg.bat
+3. login in docker, modify "/etc/ssh/sshd_config" then restart "ssh"
+3.1 vim /etc/ssh/sshd_config:
+X11Forwarding yes
+X11UseLocalhost no
+AddressFamily inet
+PasswordAuthentication yes
+PermitRootLogin yes
+3.2 restart ssh
+/etc/init.d/ssh restart
+3.3 xhost +
+4. install MobaXterm on your windows host
+5. start MobaXterm
+5.1 start local terminal
+5.2 ssh root@127.0.0.1 -XY -p 1209
+5.3 start 'gedit' to test gui
